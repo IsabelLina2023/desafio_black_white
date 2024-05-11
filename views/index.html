@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles">
+    <title>Desafío Black&White</title>
+</head>
+
+<body>
+    <h1 class="atencion">Fotos cambiadas a escala de grises</h1>
+    <div>
+        <form class="container" action="/editar" method="post">
+            <div class="form">
+                <label for="fname">Img url:</label><br>
+                <input type="text" id="fname" name="url">
+            </div>
+            <button type="submit">Sube imagen al servidor</button>
+
+        </form>
+    </div>
+    <script>
+        //función de alerta 
+        function mostrarAlerta() {
+            alert('Imagen modificada y descargada en el servidor. Revisa la imagen modificada en la nueva ventana');
+            const urlParams = new URLSearchParams(window.location.search);
+            const nameImg = urlParams.get('nameImg');
+            window.open(`/assets/uploads/${nameImg}`, '_blank');
+        }
+    </script>
+
+    <script>
+        mostrarAlerta();
+    </script>
+</body>
+
+</html>
